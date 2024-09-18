@@ -1,0 +1,30 @@
+@import 'color';
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../font/Vazir/Vazir-Black.woff') format('woff2'),
+        url('../font/Vazir/Vazir-Black.woff2') format('woff');
+}
+
+
+* {
+    direction: rtl;
+}
+
+body {
+    font-family: 'MyCustomFont', sans-serif;
+    background: $Ocean_Breeze
+}
+
+.rounded-20 {
+    border-radius: 20px;
+
+}
+
+.bg-main {
+    background: $Ocean_Breeze
+}
+
+.service-item {
+    background-color: rgba(0, 0, 0, 0.5);
+}
