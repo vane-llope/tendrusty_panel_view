@@ -1,7 +1,5 @@
 <template>
   <div class="border p-4 py-0 mt-2 container">
-    <!-- Input -->
-    <pre>{{ items[field.name] }}</pre>
     <div class="row mt-2">
       <div class="col-md-4 my-2">
         <Select2 class="mt-2 text-dark " v-model="selectedValue" :options="field.options"

@@ -1,11 +1,15 @@
 <template>
   <div class="container m-auto">
-    <DynamicForm :title="title" :fields="formFields" :axiosData="axiosData"/>
+    <pre>{{userInputs}}</pre>
+    <DynamicForm :title="title" :fields="formFields" v-model:userInputs="userInputs" >
+      <button type="submit" class="btn bg-main text-light mt-5 w-100 border-0" >تایید</button>
+      </DynamicForm>
   </div>
 </template>
 
 
 <script>
+import { ref } from "vue";
 import DynamicForm from "../components/DynamicForm.vue";
 
 export default {
@@ -14,6 +18,7 @@ export default {
     DynamicForm,
   },
   setup() {
+    const userInputs = ref({});
     const title = "ویزیت";
     const inputLabel = "دارو";
     const formFields = [
@@ -50,16 +55,11 @@ export default {
       },
     ];
 
-    const axiosData = {
-      header: {},
-      method: "post",
-      action: "tenapi.tendrusty.com/app/loggin",
-    };
     return {
       title,
       inputLabel,
       formFields,
-      axiosData,
+      userInputs,
     };
   },
 };
