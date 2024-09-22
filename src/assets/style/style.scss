@@ -1,7 +1,7 @@
-@import 'color';
+@import 'theme/ocean.scss';
 
 @font-face {
-    font-family: 'MyCustomFont';
+    font-family: 'Vazir';
     src: url('../font/Vazir/Vazir-Black.woff') format('woff2'),
         url('../font/Vazir/Vazir-Black.woff2') format('woff');
 }
@@ -12,8 +12,8 @@
 }
 
 body {
-    font-family: 'MyCustomFont', sans-serif;
-    background: $Ocean_Breeze
+    font-family: 'Vazir', sans-serif;
+    background: $main_bg
 }
 
 .rounded-20 {
@@ -22,9 +22,15 @@ body {
 }
 
 .bg-main {
-    background: $Ocean_Breeze
+    background: $main_bg
 }
 
 .service-item {
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #b2ccec;
+    color: white;
+    /* Change this to your desired text color */
 }

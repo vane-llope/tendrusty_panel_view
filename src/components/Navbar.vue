@@ -20,6 +20,9 @@
               <li class="nav-item">
                 <router-link class="nav-link text-light fw-bold" to="/Booking">رزرو</router-link>
               </li>
+              <li class="nav-item">
+                <router-link class="nav-link text-light fw-bold" to="/BookingList">تاریخچه نوبت ها</router-link>
+              </li>
            
             </ul>
           </div>

@@ -2,15 +2,15 @@
   <div class="container m-auto">
     <pre>{{userInputs}}</pre>
     <DynamicForm :title="title" :fields="formFields" v-model:userInputs="userInputs" >
-      <button type="submit" class="btn bg-main text-light mt-5 w-100 border-0" >تایید</button>
+      <button @click="submitForm"  type="submit" class="btn bg-main text-light mt-5 w-100 border-0" >تایید</button>
       </DynamicForm>
   </div>
 </template>
 
-
 <script>
 import { ref } from "vue";
 import DynamicForm from "../components/DynamicForm.vue";
+import axios from "axios";
 
 export default {
   name: "VisitView",
@@ -55,11 +55,27 @@ export default {
       },
     ];
 
+    const submitForm = async () => {
+      await axios({
+        method: "",
+        url: "",
+        data: userInputs.value,
+        headers: {},
+      })
+        .then((response) => {
+          console.log("Response:", response.data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    };
+
     return {
       title,
       inputLabel,
       formFields,
       userInputs,
+      submitForm,
     };
   },
 };

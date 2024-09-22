@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "MyCustomFont";
+  font-family: "Vazir";
   src: url("../font/Vazir/Vazir-Black.woff") format("woff2"), url("../font/Vazir/Vazir-Black.woff2") format("woff");
 }
 * {
@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "MyCustomFont", sans-serif;
+  font-family: "Vazir", sans-serif;
   background: linear-gradient(90deg, rgb(0, 128, 128) 0%, rgb(72, 201, 176) 50%, rgb(144, 224, 239) 100%);
 }
 
@@ -21,4 +21,10 @@ body {
 
 .service-item {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #b2ccec;
+  color: white;
+  /* Change this to your desired text color */
 }/*# sourceMappingURL=style.css.map */
