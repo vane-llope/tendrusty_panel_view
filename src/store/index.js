@@ -1,30 +1,29 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
+import axios from 'axios';
 
 export default createStore({
   state: {
-    User: JSON.parse(localStorage.getItem('user')) || []
+    User: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
   },
   getters: {
     loggedIn(state)
     {
-      console.log("vuex : " + !!state.User)
-      return !!state.User
+      return !!state.User;
     }
   },
   mutations: {
     async SET_USER_DATA(state, user)
     {
-      state.User = user.value
-      localStorage.setItem('user', JSON.stringify(user.value))
-      axios.defaults.headers.common['Authorization'] = user.value.token
+      state.User = user;
+      localStorage.setItem('user', JSON.stringify(user));
+      //axios.defaults.headers.common['Authorization'] = user.value.token;
     },
     CLEAR_USER_DATA(state)
     {
       state.User = null;
       localStorage.removeItem('user');
-      axios.defaults.headers.common['Authorization'] = null
+      delete axios.defaults.headers.common['Authorization'];
     }
-
   },
   actions: {
     Logout({ commit })
@@ -32,6 +31,5 @@ export default createStore({
       commit('CLEAR_USER_DATA');
     }
   },
-  modules: {
-  }
-})
+  modules: {}
+});

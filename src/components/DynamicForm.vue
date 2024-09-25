@@ -14,7 +14,7 @@
             class="form-control shadow-none" @input="emitUserInputs"></textarea>
           <select2extended v-else-if="field.type == 'select2extended'" :field="field" :items="userInputs" @update-items="handleUpdateItems" />
           <input v-else :type="field.type" :name="field.name" v-model="userInputs[field.name]"
-            class="form-control shadow-none" @input="emitUserInputs">
+            class="form-control shadow-none" @input="emitUserInputs" required>
         </div>
       </div>
       <slot></slot>

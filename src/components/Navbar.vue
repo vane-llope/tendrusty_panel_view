@@ -8,20 +8,23 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-              <li class="nav-item">
+              <li class="nav-item" v-if="loggedIn">
                 <router-link class="nav-link text-light fw-bold active" to="/Dashboard">داشبورد</router-link> 
               </li>
-              <li class="nav-item">
+              <li class="nav-item" v-if="!loggedIn">
                 <router-link class="nav-link text-light fw-bold " to="/Login">ورود</router-link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" v-if="loggedIn">
                 <router-link class="nav-link text-light fw-bold" to="/Visit">ویزیت</router-link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" v-if="loggedIn">
                 <router-link class="nav-link text-light fw-bold" to="/Booking">رزرو</router-link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" v-if="loggedIn">
                 <router-link class="nav-link text-light fw-bold" to="/BookingList">تاریخچه نوبت ها</router-link>
+              </li>
+              <li class="nav-item" v-if="loggedIn">
+                <router-link class="nav-link text-light fw-bold"  to="/" @click="logout"> خروج</router-link>
               </li>
            
             </ul>
@@ -32,3 +35,19 @@
   </div>
 </template>
 
+
+<script>
+import store from "@/store";
+import { computed } from "vue";
+
+export default {
+  setup() {
+    const loggedIn = computed(() => store.getters.loggedIn);
+    const logout = () => {
+      store.dispatch("Logout");
+    };
+    console.log(loggedIn.value);
+    return { loggedIn, logout };
+  },
+};
+</script>
